@@ -34,10 +34,12 @@ class PostsIndex extends Component {
   renderPosts() {
     const posts = objToArray(this.props.posts);
     return posts.map(p => (
-      <Post key={p.id}>
-        <h3>{p.title}</h3>
-        <p>{p.content}</p>
-      </Post>
+      <Link to={`/posts/${p.id}`} key={p.id}>
+        <Post>
+          <h3>{p.title}</h3>
+          <p>{p.content}</p>
+        </Post>
+      </Link>
     ));
   }
 
