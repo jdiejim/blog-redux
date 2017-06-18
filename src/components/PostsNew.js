@@ -70,7 +70,8 @@ class PostsNew extends Component {
   }
 
   onSubmit(values) {
-    this.props.createPost(values);
+    const { createPost, history } = this.props;
+    createPost(values , () => history.push('/'));
   }
 
   render() {
