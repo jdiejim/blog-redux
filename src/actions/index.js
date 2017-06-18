@@ -1,4 +1,4 @@
-import { FETCH_POSTS, CREATE_POST, FETCH_POST } from '../constants/action-types';
+import { FETCH_POSTS, CREATE_POST, FETCH_POST, DELETE_POST } from '../constants/action-types';
 import { URL, getURLWithID } from '../constants/endpoints';
 import axios from 'axios';
 
@@ -27,5 +27,15 @@ export function fetchPost(id) {
   return {
     type: FETCH_POST,
     payload: request
+  }
+}
+
+export function deletePost(id, callback) {
+  const request = axios.delete(getURLWithID(id))
+                       .then(() => callback());
+
+  return {
+    type: DELETE_POST,
+    payload: id
   }
 }

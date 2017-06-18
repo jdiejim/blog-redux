@@ -71,6 +71,7 @@ class PostsNew extends Component {
 
   onSubmit(values) {
     const { createPost, history } = this.props;
+    
     createPost(values , () => history.push('/'));
   }
 
