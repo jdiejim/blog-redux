@@ -4,3 +4,8 @@ export function arrayToObj(array) {
     return obj;
   }, {});
 }
+
+export function objToArray(obj) {
+  const keys = Object.keys(obj);
+  return keys.map(e => obj[e]);
+}
