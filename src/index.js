@@ -8,7 +8,7 @@ import reducers from './reducers';
 import promise from 'redux-promise';
 
 // Router
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
 import PostsIndex from './components/PostsIndex';
@@ -21,8 +21,10 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers, devTools)}>
     <Router>
       <section>
-        <Route exact path="/" component={PostsIndex} />
-        <Route path="/posts/new" component={PostsNew} />
+        <Switch>
+          <Route path="/posts/new" component={PostsNew} />
+          <Route exact path="/" component={PostsIndex} />
+        </Switch>
       </section>
     </Router>
   </Provider>

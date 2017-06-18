@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
@@ -48,6 +49,7 @@ class PostsIndex extends Component {
     return (
       <section>
         <Title>Posts</Title>
+        <Link to="/posts/new">Add Post</Link>
         <PostsContainer>
           { this.renderPosts() }
         </PostsContainer>
